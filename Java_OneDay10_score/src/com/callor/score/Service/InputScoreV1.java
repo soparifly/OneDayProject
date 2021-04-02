@@ -15,8 +15,6 @@ public class InputScoreV1 {
 
 		scan = new Scanner(System.in);
 		scoreList = new ArrayList<ScoreVO>();
-
-		// TODO Auto-generated constructor stub
 	}
 
 	public void mainMenu() {
@@ -139,6 +137,7 @@ public class InputScoreV1 {
 		System.out.println("과학: " + scoreVO.getScience() + "\t");
 		System.out.println("역사: " + scoreVO.getHistory() + "\t\n");
 	}
+
 
 
 
