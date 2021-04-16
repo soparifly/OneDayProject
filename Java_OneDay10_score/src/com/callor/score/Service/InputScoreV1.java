@@ -43,6 +43,7 @@ public class InputScoreV1 {
 	}
 
 	public Integer inputScore() {
+		ScoreVO scoreVO = new ScoreVO(); // 데이터형 V 객체이름 = 데이터형 new ();
 		System.out.println("=".repeat(50));
 		System.out.println("학생의 이름을 입력하세요 (입력을 중단하려면 QUIT)");
 		System.out.println("=".repeat(50));
@@ -57,17 +58,36 @@ public class InputScoreV1 {
 		System.out.println("=".repeat(50));
 		System.out.println(name + "학생의 성적을 입력하세요" + "(성적 범위 : 0~ 100, 입력을 중단하려면 QUIT");
 		System.out.println("=".repeat(50));
+		while (true) {
+			System.out.print("국어 >>   ");
+			Integer intKor = 0;
+			String strKor = scan.nextLine();
+			intKor = Integer.valueOf(strKor);
+			if (intKor > 0 && 100 > intKor) {
+				scoreVO.setKor(intKor);
 
-		System.out.print("국어 >>   ");
-		String strKor = scan.nextLine();
-		Integer intKor = 0;
-		intKor = Integer.valueOf(strKor);
+			} else {
+				System.out.println("정상적인 성적범위를 벗어남 다시입력하세요");
+				continue;
 
-		System.out.println("영어 >> ");
-		String strEng = scan.nextLine();
-		Integer intEng = 0;
-		intEng = Integer.valueOf(strEng);
+			}
+			break;
+		}
+		while (true) {
+			System.out.println("영어 >> ");
+			String strEng = scan.nextLine();
+			Integer intEng = 0;
+			intEng = Integer.valueOf(strEng);
+			if (intEng >= 0 && 100 >= intEng) {
 
+				scoreVO.setEng(intEng);
+			} else {
+				System.out.println("정상적인 성적범위를 벗어남 다시입력하세요");
+				continue;
+			}
+			break;
+		}
+		while(true) {
 		System.out.println("수학 >> ");
 		String strMath = scan.nextLine();
 		Integer intMath = 0;
@@ -83,10 +103,7 @@ public class InputScoreV1 {
 		Integer intHistory = 0;
 		intHistory = Integer.valueOf(strHistory);
 
-		ScoreVO scoreVO = new ScoreVO(); // 데이터형 V 객체이름 = 데이터형 new ();
 		scoreVO.setName(name);
-		scoreVO.setKor(intKor);
-		scoreVO.setEng(intEng);
 		scoreVO.setMath(intMath);
 		scoreVO.setScience(intScience);
 		scoreVO.setHistory(intHistory);
@@ -109,20 +126,20 @@ public class InputScoreV1 {
 			System.out.print(sVO.getMath() + "\t");
 			System.out.print(sVO.getScience() + "\t");
 			System.out.print(sVO.getHistory() + "\t");
-			
+
 //			System.out.print(sVO.getTotalScore() + "\t");
 //			System.out.print(sVO.getTotalAvg() + "\t");
-			
+
 			int intSum = sVO.getKor();
 			intSum += sVO.getEng();
 			intSum += sVO.getMath();
 			intSum += sVO.getScience();
 			intSum += sVO.getHistory();
-			System.out.print(intSum+ "\t");
-			
-			float scoreAvg = (float)intSum / 5;
-			System.out.printf("%3.2f + \n",scoreAvg);
-			
+			System.out.print(intSum + "\t");
+
+			float scoreAvg = (float) intSum / 5;
+			System.out.printf("%3.2f + \n", scoreAvg);
+
 		}
 	}
 
@@ -137,8 +154,5 @@ public class InputScoreV1 {
 		System.out.println("과학: " + scoreVO.getScience() + "\t");
 		System.out.println("역사: " + scoreVO.getHistory() + "\t\n");
 	}
-
-
-
 
 }
