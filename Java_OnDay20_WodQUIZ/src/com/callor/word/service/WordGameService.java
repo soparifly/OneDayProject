@@ -1,18 +1,19 @@
 package com.callor.word.service;
 
-import com.callor.word.model.WordVO;
+import com.callor.word.UserVO;
 
 public interface WordGameService {
 	
 	
 	public void selectMenu();
-	public void inputgame();
-	
+	public String inputGame();
+	public void mainGame();
 	public void saveGame();
-	public void loadGame();
+	public UserVO getUserID(String id);
 	public void loadWord();
-	public String mixWord();
+
 	public Integer win();
-	public WordVO getWord();
+	public Integer lose();
+
 	
 }
