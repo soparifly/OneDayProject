@@ -263,7 +263,6 @@ public class WordGameV1 implements WordGameService {
 						break;
 					} else if (intEnter == 2) {
 						this.inputGame();// 이름입력받음
-						userPoint = 0;
 						if (userName.equals("QUIT")) {
 							break; // 입력값 멈춤 다시처음으로
 						}
@@ -342,7 +341,7 @@ public class WordGameV1 implements WordGameService {
 	public void mainGame() {
 //		mixWord();
 		System.out.println("다음 단어를 올바르게 배열하세요");
-		System.out.println(questionWords.toString()); // 섞은 문자열 보여주기
+//		System.out.println(questionWords.toString()); // 섞은 문자열 보여주기Í
 		System.out.println("=".repeat(50));
 
 		System.out.println(Arrays.toString(strWords));
