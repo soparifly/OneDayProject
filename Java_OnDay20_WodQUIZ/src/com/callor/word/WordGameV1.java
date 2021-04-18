@@ -125,7 +125,7 @@ public class WordGameV1 implements WordGameService {
 				userName = vo.getSaveName();
 				userPoint = Integer.valueOf(vo.getSaveScore());
 				return vo;
-			}
+			} //불러는 와지는데 순차적으로 젤 위에점수부터 불러와져서 덮어씌기가 안됨...
 		}
 		return null;
 	}
