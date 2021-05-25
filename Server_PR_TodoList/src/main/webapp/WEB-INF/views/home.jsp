@@ -10,12 +10,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>
-table#gblist tr:hover {
-	cursor: pointer;
-	background-color: #ddd;
-}
-</style>
+
 <script>
 	document.addEventListener(
 			"DOMContentLoaded",
