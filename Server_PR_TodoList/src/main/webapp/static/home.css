@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+* {
+	background-color: #809478;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	background-color: #fff1ff;
+	color: #809478;
+	padding: 20px;
+	text-align: center;
+}
+
+button#todo_btn {
+	background-color: #fff1ff;
+}
+
+input {
+	border-style: dotted;
+}
+
+input#inputauto {
+	width: 90px;
+	color: #809478;
+	background-color: #fff1ff;
+	border-width: 1px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+input#inputtext {
+	width: 200px;
+	color: #809478;
+	background-color: #fff1ff;
+	border-width: 1px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+table#tdlist {
+	border-collapse: collapse;
+	width: 70%;
+	margin: 10px auto;
+	border-radius: 5px;
+}
+
+td, th {
+	padding: 5px;
+	text-align: center;
+	color: #809478;
+	background-color: #fff1ff;
+	border-top: dotted 1px;
+	border-width: 1px;
+}
+
+div.todo_btn {
+	width: 70%;
+	margin: 10px auto;
+}
+
+div#divV1 {
+	box-sizing: border-box;
+	text-ailgn: center;
+}
+
+button#v0 {
+	background-color: #fff1ff;
+	color: #809478;
+	border-width: 1px;
+	border-radius: 5px;
+}
+
+div#divV1 form#v0 {
+	text-align: center;
+}

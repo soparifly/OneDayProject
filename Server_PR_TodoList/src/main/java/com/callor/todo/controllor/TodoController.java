@@ -35,8 +35,8 @@ public class TodoController extends HttpServlet {
 		if (subPath.equals("/insert")) {
 
 			System.out.println("내용없음");
-		} else if(subPath.equals("/delete")) {
-			
+		} else if (subPath.equals("/delete")) {
+
 			System.out.println(td_seq);
 		}
 	}
@@ -45,7 +45,7 @@ public class TodoController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String subPath = req.getPathInfo();
 		System.out.println(subPath);
-		
+
 		String td_date = req.getParameter(DBInfo.TODO.td_date);
 		String td_time = req.getParameter(DBInfo.TODO.td_time);
 		String td_todo = req.getParameter(DBInfo.TODO.td_todo);
@@ -57,7 +57,7 @@ public class TodoController extends HttpServlet {
 		tdVO.setTd_area(td_area);
 
 		System.out.println(tdVO.toString());
-		
+
 		if (subPath.equals("/insert")) {
 			int result = tdService.insert(tdVO);
 			if (result > 0) {
@@ -66,21 +66,23 @@ public class TodoController extends HttpServlet {
 			} else {
 				System.out.println("저장실패");
 			}
-			
-		} else if(subPath.equals("/delete")) {
-			
-			String[] strSeq = req.getParameterValues("td_seq");
-			
-			
-			for(int i=0;i<strSeq.length;i++) {
-				System.out.println("삭제한 SEQ: "+ strSeq[i]);
-				Long td_seq = Long.valueOf(strSeq[i]);
-				tdService.delete(td_seq);
+
+		} else if (subPath.equals("/delete")) {
+
+			String[] strSeq = req.getParameterValues(DBInfo.TODO.td_seq);
+			if (strSeq == null) {
+				System.out.println("지울 항목 선택안하고 삭제버튼클릭함");
+				resp.sendRedirect("/todo/");
+			} else {
+				for (int i = 0; i < strSeq.length; i++) {
+					System.out.println("삭제한 SEQ: " + strSeq[i]);
+					Long td_seq = Long.valueOf(strSeq[i]);
+					tdService.delete(td_seq);
+				}
+
+				System.out.println("삭제");
+				resp.sendRedirect("/todo/");
 			}
-			
-			System.out.println("삭제");
-			resp.sendRedirect("/todo/");
-			
 		} else if (subPath == null || subPath.equals("")) {
 			System.out.println("요청Path가 없음");
 			System.out.println(subPath);
