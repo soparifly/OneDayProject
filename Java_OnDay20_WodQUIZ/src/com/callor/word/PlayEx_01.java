@@ -6,6 +6,7 @@ public class PlayEx_01 {
 	public static void main(String[] args) {
 
 		WordGameService ss  = new WordGameV1();
+		
 	}
 	
 }
